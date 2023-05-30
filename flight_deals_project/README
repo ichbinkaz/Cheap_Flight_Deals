@@ -1,0 +1,74 @@
+Flight Price Tracker
+
+Flight Price Tracker is a Python application that helps users track flight prices and receive notifications when prices drop below a specified threshold. The application uses the Kiwi.com API to fetch flight data and sends notifications to users via Telegram.
+
+Setup
+
+1. Clone the repository:
+
+git clone https://github.com/your-username/flight-price-tracker.git
+
+2. Create a .env file in the project root directory and add the following environment variables:
+API_KEY=<your_api_key>
+API_ENDPOINT_QUERY=<api_endpoint_for_query>
+API_ENDPOINT_SEARCH=<api_endpoint_for_search>
+BOT_TOKEN=<your_telegram_bot_token>
+
+
+Make sure to replace <your_api_key>, <api_endpoint_for_query>, <api_endpoint_for_search>, and <your_telegram_bot_token> with your respective values.
+
+  * API_ENDPOINT_QUERY: This endpoint is used for querying the API to retrieve information about locations. It is specifically used to fetch the IATA codes for the desired cities.
+  * API_ENDPOINT_SEARCH: This endpoint is used for searching flights based on specific criteria, such as the departure airport, destination, dates, and more. It is used to fetch flight prices and other details.
+
+These endpoints are part of the Kiwi.com API (Tequila API) and are used by the Flight Price Tracker application to fetch flight data and perform searches.
+
+Please note that the actual values for API_ENDPOINT_QUERY and API_ENDPOINT_SEARCH should be obtained from the Kiwi.com API documentation or your account's API settings.
+
+It's important to note that in order to send messages to specific users or chat groups using the Telegram Bot API, you need to know their respective chat IDs. Each user or group has a unique chat ID associated with them, which serves as the destination for sending messages.
+
+In the provided JSON data, the "chat_id" field contains the chat ID for each user. Users who want to receive notifications from the Telegram bot should provide their chat ID to the bot administrator or configure it themselves in the application.
+
+To obtain the chat ID for a user or chat group, you can follow these steps:
+
+1. Start a conversation with your Telegram bot.
+2. Send a message to the bot from the desired user or chat group.
+3. Retrieve the chat ID by making an API call to the Telegram Bot API, such as the getUpdates method, which returns information about incoming messages.
+4. Alternatively, you can use third-party libraries or tools that simplify the process of obtaining chat IDs.
+
+Usage
+
+To track flight prices and receive notifications, follow these steps:
+
+1. Run the flight_search.py script to fetch the IATA codes for the desired cities:
+
+python flight_search.py
+
+2. Run the data_manager.py script to populate the flight deals data:
+
+python data_manager.py
+
+3. Run the flight_data.py script to fetch flight prices and store them:
+
+python flight_data.py
+
+4. Run the users_management.py script to manage user information:
+
+python users_management.py
+
+5. Run the notification_manager.py script to check prices and send notifications:
+
+python notification_manager.py
+
+That's it! The Flight Price Tracker will continuously monitor flight prices and send notifications to the specified Telegram users when prices drop below the threshold.
+
+Contributing
+
+Contributions to the Flight Price Tracker project are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+License
+
+Flight Price Tracker is open source and distributed under the MIT License.
+
+Disclaimer
+
+The Flight Price Tracker application is for educational purposes only. It is not responsible for any inaccuracies in the flight data or any actions taken based on the provided information.
